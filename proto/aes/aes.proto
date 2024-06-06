@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package="jothamwong.com/serverless-suite/proto/aes";
+
+package aes;
+
+// AES Service definition
+service Aes {
+    // Perform encryption on received message and returns information about it
+    rpc ShowEncryption(PlainTextMessage) returns (ReturnEncryptionInfo) {}
+}
+
+// plaintext message to be encrypted
+message PlainTextMessage { string plaintext_message = 1; }
+// Response message containing information about encrypted message
+// (runtime, plaintext, encrypted message)
+message ReturnEncryptionInfo { string encryption_info = 1; }
